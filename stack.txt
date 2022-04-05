@@ -1,0 +1,40 @@
+
+    //i节点是index节点的左子节点
+    for (int i = 2 * index + 1; i < length; i = 2 * i + 1)
+    {
+        //表明左子节点小于右子节点
+        if (i+1 < length && array[i] < array[i+1])
+        {
+            //将指针移至较大节点
+            i++;
+        }
+
+        //如果子节点大于父节点
+        if (array[i] > temp)
+        {
+            //将较大值赋给当前节点
+            array[index] = array[i];
+            //指针移向子节点
+            index = i;
+        }
+        else
+        {
+            break;
+        }
+    }
+    //循环结束，已经将最大值放在了堆顶
+    //将temp值放到最终的位置
+    array[index] = temp;
+    
+}
+
+public static void main(String[] args)
+{
+    //升序
+    int[] array = {4,6,8,78,13,19,1,5,9,};
+    System.out.println("排序前=>"+ Arrays.toString(array));
+    heapSort(array);
+    System.out.println("排序后=>"+Arrays.toString(array));
+}
+
+原文链接：https://blog.csdn.net/TaylorSwiftiiln/article/details/119865970
